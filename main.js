@@ -3,6 +3,9 @@
 // @namespace    http://tampermonkey.net/
 // @version      1.0
 // @description  Convert celcat calendar data to iCalendar
+// @homepageURL  https://github.com/Robotechnic/CELCATiCalendar
+// @updateURL    https://raw.githubusercontent.com/Robotechnic/CELCATiCalendar/master/main.js
+// @downloadURL  https://raw.githubusercontent.com/Robotechnic/CELCATiCalendar/master/main.js
 // @author       Robotechnic
 // @match        https://edt.univ-tlse3.fr/calendar2/*
 // @grant        GM_log
@@ -101,7 +104,7 @@ function dialogHideEvent(name) {
 
 /**
  * Generate a new dialog with all the appropriate styles, events and animations and add it to the page
- * 
+ *
  * @param name name of the dialog to create
  * @param title title to display in the dialog header
  * @param description description which is displayer above the dialog content
@@ -418,7 +421,7 @@ function dataToIcal(data) {
 	   result += "METHOD:PUBLISH\r\n"
 	   result += "X-WR-CALNAME:CELCAT-EDT\r\n"
 	   result += "X-WR-TIMEZONE:Europe/Paris\r\n"
-	
+
 	const dstamp = `DTSTAMP:${formatDate(new Date().toISOString())}\r\n`
 	for (const event of data) {
 		if (event.eventCategory == "CONGES" || event.eventCategory == "FERIE" || event.eventCategory == "PONT") continue
