@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name         CELCAT iCalendar
 // @namespace    http://tampermonkey.net/
-// @version      1.1
+// @version      1.1.1
 // @description  Convert celcat calendar data to iCalendar
 // @homepageURL  https://github.com/Robotechnic/CELCATiCalendar
 // @updateURL    https://raw.githubusercontent.com/Robotechnic/CELCATiCalendar/master/main.js
 // @downloadURL  https://raw.githubusercontent.com/Robotechnic/CELCATiCalendar/master/main.js
 // @author       Robotechnic
 // @match        https://edt.univ-tlse3.fr/calendar2/*
-// @grant        GM_log
+// @grant        
 // ==/UserScript==
 
 /**
@@ -478,7 +478,7 @@ function exportData() {
 
 	resetMainDialogError()
 
-	GM_log(`Exporting data from ${startDate} to ${endDate}`)
+	//GM_log(`Exporting data from ${startDate} to ${endDate}`)
 
 	getData(startDate, endDate)
 		.then(data => {
@@ -487,11 +487,10 @@ function exportData() {
 			link.setAttribute("href", `data:text/calendar;charset=utf-8,${encodeURIComponent(ical)}`)
 			link.download = `export-${startDate.toISOString().split("T")[0]}-${endDate.toISOString().split("T")[0]}.ics`
 			link.click()
-			URL.revokeObjectURL(url)
 		})
 		.catch(error => {
 			errorDialog.show(error)
-			GM_log(error)
+			//GM_log(error)
 		})
 
 	return true;
