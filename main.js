@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         CELCAT iCalendar
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.1
 // @description  Convert celcat calendar data to iCalendar
 // @homepageURL  https://github.com/Robotechnic/CELCATiCalendar
 // @updateURL    https://raw.githubusercontent.com/Robotechnic/CELCATiCalendar/master/main.js
