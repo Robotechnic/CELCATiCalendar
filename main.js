@@ -61,7 +61,7 @@ function filterClick(name) {
  * @param name name of the dialog to show
  */
 function showDialog(name) {
-	GM_log(`Showing dialog ${name}`)
+	// GM_log(`Showing dialog ${name}`)
 	const dialog = document.getElementById(`customDialog-${name}`)
 	document.body.classList.add("modal-open")
 	document.body.appendChild(modalFadeIn)
@@ -84,7 +84,7 @@ function dialogShowEvent(name) {
  * @param name name of the dialog to hide
  */
 function hideDialog(name) {
-	GM_log(`Hiding dialog ${name}`)
+	// GM_log(`Hiding dialog ${name}`)
 	const dialog = document.getElementById(`customDialog-${name}`)
 	dialog.classList.remove("in")
 	modalFadeIn.classList.remove("in")
@@ -483,11 +483,8 @@ function exportData() {
 	getData(startDate, endDate)
 		.then(data => {
 			const ical = dataToIcal(data)
-
-			const blob = new Blob([ical], { type: "text/calendar;charset=utf-8" })
-			const url = URL.createObjectURL(blob)
 			const link = document.createElement("a")
-			link.href = url
+			link.setAttribute("href", `data:text/calendar;charset=utf-8,${encodeURIComponent(ical)}`)
 			link.download = `export-${startDate.toISOString().split("T")[0]}-${endDate.toISOString().split("T")[0]}.ics`
 			link.click()
 			URL.revokeObjectURL(url)
