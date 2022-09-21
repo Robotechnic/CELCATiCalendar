@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         CELCAT iCalendar
 // @namespace    http://tampermonkey.net/
-// @version      1.1.1
+// @version      1.2
 // @description  Convert celcat calendar data to iCalendar
 // @homepageURL  https://github.com/Robotechnic/CELCATiCalendar
 // @updateURL    https://raw.githubusercontent.com/Robotechnic/CELCATiCalendar/master/main.js
@@ -385,7 +385,9 @@ async function getData(startDate, endDate) {
  */
 function cleanDescription(description) {
 	return description.replace(/(<br \/>|[\r])/g, "")
-					  .replace(/[\n]+/g, "\n")
+			  .replace(/[\n]+/g, "\n")
+			  .replace(/&#232;/g,"è")
+			  .replace(/&#233;/g,"è")
 }
 
 /**
