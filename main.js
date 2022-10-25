@@ -388,7 +388,7 @@ function cleanDescription(description) {
 			  .replace(/[\n]+/g, "\n")
 			  .replace(/&#232;/g,"è")
 			  .replace(/&#233;/g,"è")
-			  .replace(/&#226;/g,"")
+			  .replace(/&#226;/g,"â")
 }
 
 /**
